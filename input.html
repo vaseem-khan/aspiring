@@ -1,14 +1,12 @@
 <html>
-  <head>
+	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>User interface</title>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script type="text/javascript">
-	
-	
 	$(document).ready(function(){
 
-		$("#no_args").change(function() {
+		$("#no_args").change(function() { // for different number of variables fields will be there as per of  arguments
 		 var i=$(this).val();
 		 $(".variables_row").remove();
 		 while( i--){
@@ -16,9 +14,7 @@
 		 } 
 		});
 				
-	});
-	
-		
+	});		
 	</script>
 
 	<style type="text/css">
@@ -32,44 +28,40 @@
         }
     </style>
 
-	
 	</head>
 	
 	<body>
-	<h1>User interface</h1>
-	<form id="ajaxquery"action="backend.php" method="post">
-	<table class="style1">
-		<tbody>
-			<tr>
-				<td class="style2">Name of function</td>
-				<td> <input name="func_name" type="text" /></td>
-			</tr>
-			<tr>
-				<td class="style2">Name of the class (for Java)</td>
-				<td> <input name="class_name" type="text" /></td>
-			</tr>
-			<tr>
-				<td class="style2">Number of input arguments(press tab after entering)</td>
-				<td> <input name="no_args" type="number" id="no_args" /></td>
-			</tr>
-			
-			<tr id="variables">
-			
-			</tr>
-			
-			
-		   
-			<tr>
-				<td class="style2">
-					&nbsp;</td>
-				<td>
-					<input id="Submit1" type="submit" value="submit" />
-					<input id="Reset1"  type="reset" value="reset" />
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	</form>
+		<h1>User interface</h1>
+		<form id="ajaxquery"action="backend.php" method="post">
+		<table class="style1">
+			<tbody>
+				<tr>
+					<td class="style2">Name of function</td>
+					<td> <input name="func_name" type="text" /></td>
+				</tr>
+				<tr>
+					<td class="style2">Name of the class (for Java)</td>
+					<td> <input name="class_name" type="text" /></td>
+				</tr>
+				<tr>
+					<td class="style2">Number of input arguments(press tab after entering)</td>
+					<td> <input name="no_args" type="number" id="no_args" /></td>
+				</tr>
+				
+				<tr id="variables">
+				
+				</tr>
+				
+				<tr>
+					<td class="style2">
+						&nbsp;</td>
+					<td>
+						<input id="Submit1" type="submit" value="submit" />
+						<input id="Reset1"  type="reset" value="reset" />
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</form>
 	</body>
-
 </html>
