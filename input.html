@@ -1,0 +1,75 @@
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>User interface</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	
+	
+	$(document).ready(function(){
+
+		$("#no_args").change(function() {
+		 var i=$(this).val();
+		 $(".variables_row").remove();
+		 while( i--){
+		 	$("<tr class='variables_row'><td class='style2'>Variable "+(i+1)+" name</td><td class='style2'><input name='var_name[]' type='text' /></td> &nbsp; &nbsp;  <td class='style2'>Dimentionality" + (i+1)+"<select name='dim[]'><option value='0'>0</option><option value='1'>1</option><option value='2'>2</option></select></td>&nbsp;&nbsp;<td class='style2'>Data type</td><td class='style2'> <select name='data_type[]'><option value='int'>interger</option><option value='char'>char</option></select></td></tr>").insertAfter('#variables');						
+		 } 
+		});
+				
+	});
+	
+		
+	</script>
+
+	<style type="text/css">
+        .style1
+        {
+            width: 800px;
+        }
+        .style2
+        {
+            width: 200px;
+        }
+    </style>
+
+	
+	</head>
+	
+	<body>
+	<h1>User interface</h1>
+	<form id="ajaxquery"action="backend.php" method="post">
+	<table class="style1">
+		<tbody>
+			<tr>
+				<td class="style2">Name of function</td>
+				<td> <input name="func_name" type="text" /></td>
+			</tr>
+			<tr>
+				<td class="style2">Name of the class (for Java)</td>
+				<td> <input name="class_name" type="text" /></td>
+			</tr>
+			<tr>
+				<td class="style2">Number of input arguments(press tab after entering)</td>
+				<td> <input name="no_args" type="number" id="no_args" /></td>
+			</tr>
+			
+			<tr id="variables">
+			
+			</tr>
+			
+			
+		   
+			<tr>
+				<td class="style2">
+					&nbsp;</td>
+				<td>
+					<input id="Submit1" type="submit" value="submit" />
+					<input id="Reset1"  type="reset" value="reset" />
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</form>
+	</body>
+
+</html>
