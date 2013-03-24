@@ -3,33 +3,24 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>User interface</title>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    	<script type="text/javascript" src="js/jquery.js"></script> 
-        <script type="text/javascript" src="js/jquery.form.js"></script> 
-        <script type="text/javascript">
-            $('document').ready(function()
-		{			
-		$('#form').ajaxForm( {
-	        	target: '#preview', 
-	        	success: function() { 
-	        		$('#formbox').slideUp('fast'); 
-	        	} 
-    			}); 
-						
-            	});
-        </script> 
-
 	<script type="text/javascript">
 	$(document).ready(function(){
-
 		$("#no_args").change(function() { // for different number of variables fields will be there as per of  arguments
-			 var i=$(this).val();
-			 $(".variables_row").remove();
-			 while( i--){
-			 	$("<tr class='variables_row'><td class='style2'>Variable "+(i+1)+" name</td><td class='style2'><input name='var_name[]' type='text' /></td> &nbsp; &nbsp;  <td class='style2'>Dimentionality" + (i+1)+"<select name='dim[]'><option value='0'>0</option><option value='1'>1</option><option value='2'>2</option></select></td>&nbsp;&nbsp;<td class='style2'>Data type</td><td class='style2'> <select name='data_type[]'><option value='int'>interger</option><option value='char'>char</option></select></td></tr>").insertAfter('#variables');						
-			 } 
+		 var i=$(this).val();
+		 $(".variables_row").remove();
+		 while( i--){
+		 	$("<tr class='variables_row'><td class='style2'>Variable "+(i+1)+" name</td><td class='style2'><input name='var_name[]' type='text' /></td> &nbsp; &nbsp;  <td class='style2'>Dimentionality" + (i+1)+"<select name='dim[]'><option value='0'>0</option><option value='1'>1</option><option value='2'>2</option></select></td>&nbsp;&nbsp;<td class='style2'>Data type</td><td class='style2'> <select name='data_type[]'><option value='int'>interger</option><option value='char'>char</option></select></td></tr>").insertAfter('#variables');						
+		 } 
 		});
-				
-	});		
+			
+	$("#ajaxquery").on( "submit" , function(){ //submit
+	    	var formdata = $(this).serialize(); 
+	    	$.post( "BACKEND.php", formdata, function( data ) {
+		        $("#success").html ( data );
+		      });
+		return false; 
+		});
+	});	
 	</script>
 
 	<style type="text/css">
@@ -41,15 +32,13 @@
         {
             width: 200px;
         }
-    </style>
+   	</style>
 
 	</head>
 	
 	<body>
-	<h1>User interface</h1>
-        <div id="preview"> </div>
-        <div id="formbox"> 
-		<form name="" id="form" action="backend.php" method="post">
+		<h1>User interface</h1>
+		<form id="ajaxquery" action="" method="post">
 		<table class="style1">
 			<tbody>
 				<tr>
@@ -70,8 +59,8 @@
 				</tr>
 				
 				<tr>
-					<td class="style2">&nbsp;
-						</td>
+					<td class="style2">
+						&nbsp;</td>
 					<td>
 						<input id="Submit1" type="submit" value="submit" />
 						<input id="Reset1"  type="reset" value="reset" />
@@ -80,6 +69,7 @@
 			</tbody>
 		</table>
 		</form>
-        </div>
+		<div id="success"></div>
+
 	</body>
 </html>
