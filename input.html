@@ -8,6 +8,7 @@
 		$("#no_args").change(function() { // for different number of variables fields will be there as per of  arguments
 		 var i=$(this).val();
 		 $(".variables_row").remove();
+		 $("<tr class='variables_row'><td class='style2'>return type</td><td class='style2'>&nbsp; &nbsp;<td class='style2'>Dimentionality<select name='dim[]'><option value='0'>0</option><option value='1'>1</option><option value='2'>2</option></select></td>&nbsp;&nbsp;<td class='style2'>Data type</td><td class='style2'> <select name='data_type[]'><option value='int'>interger</option><option value='char'>char</option></select></td></tr>").insertBefore('#variables');						
 		 while( i--){
 		 	$("<tr class='variables_row'><td class='style2'>Variable "+(i+1)+" name</td><td class='style2'><input name='var_name[]' type='text' /></td> &nbsp; &nbsp;  <td class='style2'>Dimentionality" + (i+1)+"<select name='dim[]'><option value='0'>0</option><option value='1'>1</option><option value='2'>2</option></select></td>&nbsp;&nbsp;<td class='style2'>Data type</td><td class='style2'> <select name='data_type[]'><option value='int'>interger</option><option value='char'>char</option></select></td></tr>").insertAfter('#variables');						
 		 } 
